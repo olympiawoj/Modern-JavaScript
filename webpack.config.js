@@ -4,6 +4,7 @@ var HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   //the first item in array is the polyfill we installed
   //babel will make sure our entire app has everything included in babel/polyfill which includes Promise api/primitive so inside of our app we can now use promises
+  //babel-polyfill includes support for async await
   entry: ["@babel/polyfill", "./app/index.js"],
   output: {
     path: path.resolve(__dirname, "dist"),
