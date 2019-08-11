@@ -67,6 +67,7 @@ class Popular extends React.Component {
   }
 
   updateLanguage = async lang => {
+    console.log("updating language running");
     this.setState(() => ({
       selectedLanguage: lang,
       repos: null
@@ -78,12 +79,12 @@ class Popular extends React.Component {
     this.setState(() => ({ repos }));
   };
   render() {
-    const { selectedLanguage, updateLanguage, repos } = this.state;
+    const { selectedLanguage, repos } = this.state;
     return (
       <div>
         <SelectLanguage
           selectedLanguage={selectedLanguage}
-          onSelect={updateLanguage}
+          onSelect={this.updateLanguage}
         />
         {!repos ? <Loading /> : <RepoGrid repos={repos} />}
       </div>
